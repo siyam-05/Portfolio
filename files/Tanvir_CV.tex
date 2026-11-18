@@ -1,0 +1,122 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{charter}
+\usepackage[letterpaper,top=0.5in,bottom=0.45in,left=0.6in,right=0.6in]{geometry}
+\usepackage{microtype}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{ink}{HTML}{141A24}
+\definecolor{muted}{HTML}{5A6475}
+\definecolor{accent}{HTML}{2346C7}
+\color{ink}
+\hypersetup{pdftitle={Md. Tanvir Hasan Siyam - CV},pdfauthor={Md. Tanvir Hasan Siyam},
+  colorlinks=true,urlcolor=accent,linkcolor=accent}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+
+% Section headings: small caps, accent colour, thin rule
+\titleformat{\section}{\large\scshape\color{accent}}{}{0pt}{}[\vspace{-6pt}{\color{muted!45}\rule{\textwidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.1em,label={\color{muted}\textbullet},itemsep=1.2pt,topsep=2pt,parsep=0pt}
+
+% \entry{Left bold}{Right}{Left italic}{Right italic}
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+    \textit{#3} & {\color{muted}\textit{#4}} \\
+  \end{tabularx}\vspace{1pt}}
+\newcommand{\entryone}[2]{%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    #1 & \hspace{10pt}{\color{muted}#2} \\
+  \end{tabularx}}
+\newcommand{\sep}{\enspace{\color{muted}$\cdot$}\enspace}
+
+\begin{document}
+
+%----------------------------------------------------------------- Header
+\begin{center}
+  {\fontsize{22}{26}\selectfont Md. Tanvir Hasan Siyam}\\[5pt]
+  {\color{muted}B.Sc. student, Electronics \& Telecommunication Engineering, CUET\sep Chattogram, Bangladesh}\\[3pt]
+  \href{mailto:tanvirsiyam5088@gmail.com}{tanvirsiyam5088@gmail.com}\sep
+  \href{https://siyam-05.github.io}{siyam-05.github.io}\sep
+  \href{https://github.com/siyam-05}{github.com/siyam-05}\sep
+  \href{https://www.linkedin.com/in/md-tanvir-hasan-siyam-b59a02343}{LinkedIn}
+\end{center}
+\vspace{-4pt}
+
+%----------------------------------------------------------------- Interests
+\section{Research Interests}
+Machine learning for electronic design automation (EDA); trustworthy ML for chip physical design, such as
+IR-drop and routing-congestion prediction on unseen designs; learning-based control for energy-efficient systems.
+
+%----------------------------------------------------------------- Education
+\section{Education}
+\entry{Chittagong University of Engineering and Technology (CUET)}{Chattogram, Bangladesh}
+      {B.Sc. in Electronics and Telecommunication Engineering}{Expected 2029}
+\vspace{-1pt}
+\begin{itemize}
+  \item CGPA 3.60 / 4.00 (through Level 2). Coursework: Digital Logic Design, Control Systems, Analog Communication.
+\end{itemize}
+\vspace{2pt}
+\entry{Notre Dame College}{Dhaka, Bangladesh}
+      {Higher Secondary Certificate (Science), GPA 5.00 / 5.00}{2023}
+
+%----------------------------------------------------------------- Research
+\section{Research Project}
+\entry{GreenRAN: Machine Learning for Base-Station Sleep Control}{\href{https://github.com/siyam-05/GreenRAN}{github.com/siyam-05/GreenRAN}}
+      {Independent research project, Python and NumPy}{2026}
+\vspace{-1pt}
+\begin{itemize}
+  \item Simulated one macro cell and 12 small cells to study when a small cell can sleep to save energy without dropping traffic.
+  \item Implemented K-means traffic clustering, Gaussian anomaly detection and a Deep Q-Network from scratch in NumPy, including
+        backpropagation and the Adam optimizer, checked against numerical gradients and unit tests.
+  \item Tuned all methods on 56 validation days and evaluated once on 112 unseen test days over 5 random seeds:
+        \textbf{31.3\%} energy saved while carrying \textbf{99.92\%} of traffic, reaching \textbf{93\%} of the saving possible with perfect foresight.
+  \item Reported negative results openly: a carefully tuned load-aware rule matched the agent (31.8\%), and the agent became stable
+        only when given the K-means traffic types.
+\end{itemize}
+
+%----------------------------------------------------------------- Engineering
+\section{Engineering Experience}
+\entry{UniconnectBD: Campus Super-App for Bangladeshi Students}{\href{https://uniconnectbd.com}{uniconnectbd.com}}
+      {Founder and sole developer; React Native (Expo), Supabase (PostgreSQL), Cloudflare Workers}{Ongoing}
+\vspace{-1pt}
+\begin{itemize}
+  \item Built and run, alone, a mobile and web app with a marketplace, blood bank, campus events and roommate finder.
+  \item Ran eight rounds of database security audits; fixed privilege escalation, identity spoofing and order tampering.
+\end{itemize}
+
+%----------------------------------------------------------------- Certificates
+\section{Certificates}
+\entryone{\textbf{Machine Learning Specialization}, DeepLearning.AI and Stanford Online (Coursera)}{2026}
+\vspace{-6pt}
+\begin{itemize}
+  \item Unsupervised Learning, Recommenders, Reinforcement Learning, Nov 2026
+        (\href{https://www.coursera.org/account/accomplishments/verify/T8NZUH6LD38E}{verify})
+  \item Supervised Machine Learning: Regression and Classification, May 2026
+        (\href{https://www.coursera.org/account/accomplishments/verify/KCVP9JTEGZT1}{verify})
+\end{itemize}
+\vspace{1pt}
+\entryone{\textbf{Introduction to Competitive Programming} (workshop), Notre Dame Information Technology Club}{Jan 2023}
+
+%----------------------------------------------------------------- Honors
+\section{Honors}
+\entryone{\textbf{Champion}, Intra Math Olympiad (Session 1, 2022), Notre Dame Math Club, Notre Dame College}{Oct 2022}
+
+%----------------------------------------------------------------- Skills
+\section{Skills}
+\begin{tabularx}{\textwidth}{@{}l@{\hspace{10pt}}X@{}}
+  \textbf{Programming} & Python, SQL (PostgreSQL), JavaScript (React Native), MATLAB \\[1.5pt]
+  \textbf{Machine learning} & NumPy, Pandas, Matplotlib, TensorFlow, PyTorch {\color{muted}(learning)}; clustering, anomaly detection, deep RL \\[1.5pt]
+  \textbf{Hardware} & Digital logic design, control systems; Verilog {\color{muted}(learning)} \\[1.5pt]
+  \textbf{Tools} & Git and GitHub, Supabase, Cloudflare Workers, Expo, LaTeX \\
+\end{tabularx}
+
+\end{document}

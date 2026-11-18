@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Md. Tanvir Hasan Siyam</title>
+<meta name="description" content="Md. Tanvir Hasan Siyam — ETE undergraduate at CUET working on machine learning for chip design and energy-efficient systems.">
+<meta name="author" content="Md. Tanvir Hasan Siyam">
+<link rel="canonical" href="https://siyam-05.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232346C7'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='white' text-anchor='middle'%3ETS%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Md. Tanvir Hasan Siyam — Machine learning for chip design">
+<meta property="og:description" content="ETE undergraduate at CUET. Building ML systems that work in the physical world; preparing for a PhD in machine learning for EDA.">
+<meta property="og:url" content="https://siyam-05.github.io/">
+<meta property="og:image" content="https://siyam-05.github.io/images/photo.jpg">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Md. Tanvir Hasan Siyam",
+ "url":"https://siyam-05.github.io/","image":"https://siyam-05.github.io/images/photo.jpg",
+ "email":"mailto:tanvirsiyam5088@gmail.com",
+ "affiliation":{"@type":"CollegeOrUniversity","name":"Chittagong University of Engineering and Technology"},
+ "knowsAbout":["Machine learning","Electronic design automation","Reinforcement learning"],
+ "sameAs":["https://github.com/siyam-05","https://www.linkedin.com/in/md-tanvir-hasan-siyam-b59a02343"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a professor-style homepage. A fixed profile column on the left (photo, name, links),
+   a reading column on the right. A faint routing-grid in the profile panel nods to chip layouts. */
+:root {
+  --bg: #F5F6F8;
+  --surface: #FFFFFF;
+  --ink: #141A24;
+  --muted: #5A6475;
+  --line: #DDE1E8;
+  --accent: #2346C7;        /* signal blue: links, highlights */
+  --accent-soft: #E7ECFB;
+  --copper: #A85B23;        /* chip-trace copper: small numeric highlights only */
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1219; --surface: #151B25; --ink: #E7EAF0; --muted: #9AA4B5; --line: #263042;
+    --accent: #8EA6FF; --accent-soft: #1C2742; --copper: #E09A5F; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1219; --surface: #151B25; --ink: #E7EAF0; --muted: #9AA4B5; --line: #263042;
+  --accent: #8EA6FF; --accent-soft: #1C2742; --copper: #E09A5F; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 32px 20px 64px; display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+
+/* ---------- profile column ---------- */
+.profile { position: sticky; top: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.profile .grid { height: 72px; background-color: var(--accent-soft);
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 14px 14px; }
+.profile .inner { padding: 0 22px 22px; }
+.photo { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; border: 4px solid var(--surface); margin-top: -58px; background: var(--line); }
+.name { font-family: var(--display); font-weight: 600; font-size: 1.62rem; line-height: 1.15; margin: 12px 0 4px; text-wrap: balance; }
+.role { color: var(--muted); font-size: .93rem; margin: 0; }
+.status { display: inline-flex; gap: 8px; align-items: center; margin: 14px 0 4px; padding: 5px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: .8rem; font-weight: 500; }
+.status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.links { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; font-size: .92rem; }
+.links li { display: flex; gap: 10px; align-items: baseline; }
+.links .k { font-family: var(--mono); font-size: .72rem; color: var(--muted); width: 58px; flex: none; text-transform: uppercase; letter-spacing: .04em; }
+.links .v { overflow-wrap: anywhere; }
+.todo { color: var(--copper); font-style: italic; }
+.cv { display: block; text-align: center; margin-top: 18px; padding: 10px; border-radius: 8px; background: var(--ink); color: var(--bg); font-weight: 500; font-size: .92rem; }
+.cv:hover { text-decoration: none; opacity: .9; }
+
+/* ---------- main column ---------- */
+main { min-width: 0; }
+section { padding: 8px 0 34px; border-bottom: 1px solid var(--line); margin-bottom: 30px; }
+section:last-child { border-bottom: none; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.55rem; margin: 0 0 14px; text-wrap: balance; }
+.lede { font-family: var(--display); font-size: 1.32rem; line-height: 1.45; margin: 0 0 16px; max-width: 62ch; }
+p { max-width: 68ch; margin: 0 0 12px; }
+
+.interests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.interest { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.interest .n { font-family: var(--mono); font-size: .75rem; color: var(--copper); }
+.interest h3 { font-size: 1rem; margin: 4px 0 6px; }
+.interest p { font-size: .9rem; color: var(--muted); margin: 0; }
+
+.cid { font-family: var(--mono); font-size: .8rem; }
+.news { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.news li { display: grid; grid-template-columns: 86px 1fr; gap: 14px; }
+.news .d { font-family: var(--mono); font-size: .82rem; color: var(--muted); padding-top: 2px; }
+
+.project { display: grid; grid-template-columns: 1fr; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin-bottom: 18px; }
+.project.has-img { grid-template-columns: 1.05fr .95fr; align-items: start; }
+.project h3 { font-family: var(--display); font-size: 1.3rem; font-weight: 600; margin: 0; }
+.project .meta { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin: 2px 0 10px; }
+.project p { font-size: .95rem; }
+.project figure { margin: 0; }
+.project figure img { border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+.project figcaption { font-size: .78rem; color: var(--muted); margin-top: 6px; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+.metric { border-left: 2px solid var(--copper); padding: 2px 0 2px 10px; }
+.metric b { display: block; font-family: var(--mono); font-size: 1.2rem; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+.metric span { font-size: .78rem; color: var(--muted); line-height: 1.35; display: block; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; padding: 0; list-style: none; }
+.tags li { font-family: var(--mono); font-size: .72rem; padding: 3px 8px; border-radius: 6px; background: var(--accent-soft); color: var(--ink); }
+.plinks { display: flex; flex-wrap: wrap; gap: 14px; font-size: .9rem; font-weight: 500; }
+
+.rows { display: grid; gap: 16px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; }
+.row .t { font-weight: 600; }
+.row .when { font-family: var(--mono); font-size: .82rem; color: var(--muted); text-align: right; }
+.row .sub { grid-column: 1 / -1; color: var(--muted); font-size: .92rem; }
+
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.skills h3 { font-size: .8rem; font-family: var(--mono); font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin: 0 0 8px; }
+.skills ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; font-size: .93rem; }
+.learning { font-family: var(--mono); font-size: .68rem; color: var(--copper); margin-left: 6px; }
+
+footer { color: var(--muted); font-size: .82rem; }
+
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: 1fr; gap: 28px; padding-top: 20px; }
+  .profile { position: static; }
+  .interests, .skills { grid-template-columns: 1fr; }
+  .project.has-img { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .metrics { grid-template-columns: 1fr; }
+  .news li { grid-template-columns: 1fr; gap: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside class="profile" id="profile" aria-label="Profile"></aside>
+  <main id="main"></main>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT YOUR PORTFOLIO HERE
+   Everything on the page comes from this one object. To add something,
+   copy an existing entry, paste it below, and change the text.
+   Leave a value as "" to hide it. Save the file and refresh the browser.
+   ===================================================================== */
+const SITE = {
+  name: "Md. Tanvir Hasan Siyam",
+  role: "B.Sc. student, Electronics & Telecommunication Engineering, CUET",
+  status: "Preparing for PhD applications, Fall 2029",
+  photo: "images/photo.jpg",
+  location: "Chattogram, Bangladesh",
+
+  // Fill these in. Anything left as "" shows a reminder until you replace it.
+  email: "tanvirsiyam5088@gmail.com",                         // e.g. "yourname@gmail.com" (use a professional address)
+  linkedin: "https://www.linkedin.com/in/md-tanvir-hasan-siyam-b59a02343",                      // e.g. "https://www.linkedin.com/in/your-handle"
+  github: "https://github.com/siyam-05",
+  scholar: "",                       // Google Scholar link, once you have a paper
+  cv: "files/Tanvir_CV.pdf",         // your CV PDF, kept in the "files" folder
+
+  lede: "I build machine-learning systems that have to work in the physical world, and I want to make AI tools for chip design trustworthy.",
+  about: [
+    "I am an undergraduate in Electronics and Telecommunication Engineering at Chittagong University of Engineering and Technology (CUET), expecting to graduate in 2029.",
+    "My recent project, GreenRAN, asks when a small cell in a mobile network can safely go to sleep. I wrote the clustering, anomaly detection and deep reinforcement learning myself in NumPy, ran every result over five seeds, and reported where a tuned rule did as well as the learned agent.",
+    "I also designed and built UniconnectBD, a campus super-app for Bangladeshi students, on my own. Running it taught me to treat security, data and real users with care.",
+    "Next, I am moving into machine learning for electronic design automation (EDA), and I plan to pursue a PhD in this area."
+  ],
+
+  interests: [
+    { title: "Trustworthy ML for chip design", text: "When can an AI prediction in physical design, such as IR drop or routing congestion, be trusted on a chip it has never seen?" },
+    { title: "Machine learning for EDA", text: "Fast learned models of layout images and circuit graphs that help engineers make design decisions earlier." },
+    { title: "ML for energy-efficient systems", text: "Learning-based control that saves energy without hurting service, from radio networks to efficient AI hardware." }
+  ],
+
+  news: [
+    { date: "Nov 2026", text: "Released <a href=\"https://github.com/siyam-05/GreenRAN\">GreenRAN</a>, an open-source study of base-station sleep control with machine learning." },
+    { date: "Nov 2026", text: "Finished the <i>Machine Learning Specialization</i> by DeepLearning.AI and Stanford Online, ending with <i>Unsupervised Learning, Recommenders, Reinforcement Learning</i>." },
+    { date: "Nov 2026", text: "Started Andrej Karpathy's <i>Neural Networks: Zero to Hero</i>, building backpropagation from scratch on the way to PyTorch." },
+    { date: "May 2026", text: "Completed <i>Supervised Machine Learning: Regression and Classification</i> (DeepLearning.AI and Stanford Online)." }
+  ],
+
+  projects: [
+    {
+      title: "GreenRAN: when should a small cell go to sleep?",
+      meta: "2026 · Independent research project · Python, NumPy",
+      text: "A simulation study of base-station sleep control in a network of one macro cell and 12 small cells. K-means finds the traffic type of each cell, a Gaussian detector flags unusual traffic, and a Deep Q-Network decides which cells sleep. All models, backpropagation and the Adam optimizer are written by hand in NumPy and checked against numerical gradients. Rules and the agent were tuned on 56 validation days and scored once on 112 unseen test days.",
+      metrics: [
+        { value: "31.3%", label: "energy saved vs. always-on (5 seeds)" },
+        { value: "99.92%", label: "of traffic still carried" },
+        { value: "93%", label: "of the saving possible with perfect foresight" }
+      ],
+      finding: "Honest result: a carefully tuned load-aware rule saved about the same (31.8%), and the agent only became stable once it was given the K-means traffic types.",
+      tags: ["K-means", "Anomaly detection", "Deep Q-Network", "From-scratch NumPy", "5 seeds", "Unit tests"],
+      image: "images/greenran.jpg",
+      caption: "Energy saved against traffic lost on 112 unseen test days.",
+      links: [ { label: "Code and report", url: "https://github.com/siyam-05/GreenRAN" } ]
+    },
+    {
+      title: "UniconnectBD: a campus super-app for Bangladeshi students",
+      meta: "Ongoing · Sole developer · React Native (Expo), Supabase, Cloudflare Workers",
+      text: "A mobile and web app that brings student services into one place: a student marketplace, a smart blood bank, campus events and a roommate finder. I designed, built and run it alone, from the database to releases. I carried out eight rounds of security audits on the Supabase row-level security rules and fixed issues including privilege escalation, identity spoofing and order tampering.",
+      metrics: [],
+      finding: "",
+      tags: ["React Native", "Expo", "PostgreSQL", "Row-level security", "Cloudflare Workers"],
+      image: "",
+      caption: "",
+      links: [ { label: "uniconnectbd.com", url: "https://uniconnectbd.com" } ]
+    }
+  ],
+
+  // Add papers here when you have them. While this list is empty, the section stays hidden.
+  // Example: { title: "Paper title", authors: "<b>M. T. H. Siyam</b>, A. Author", venue: "MLCAD 2028", links: [{label:"PDF", url:"..."}] }
+  publications: [],
+
+  education: [
+    { title: "B.Sc. in Electronics and Telecommunication Engineering", place: "Chittagong University of Engineering and Technology (CUET)", when: "Expected 2029",
+      detail: "CGPA 3.60 / 4.00 (through Level 2). Relevant courses: Digital Logic Design, Control System Engineering, Analog Communication." },
+    { title: "Higher Secondary Certificate (HSC), Science", place: "Notre Dame College, Dhaka", when: "2022 – 2023",
+      detail: "GPA 5.00 / 5.00" },
+    { title: "Secondary School Certificate (SSC)", place: "Jahajmara High School", when: "", detail: "" }
+  ],
+
+  // id = credential ID. url = the "Show credential" link from LinkedIn.
+  certificates: [
+    { title: "Unsupervised Learning, Recommenders, Reinforcement Learning", place: "DeepLearning.AI and Stanford Online (Coursera), Machine Learning Specialization", when: "Nov 2026",
+      id: "T8NZUH6LD38E", url: "https://www.coursera.org/account/accomplishments/verify/T8NZUH6LD38E" },
+    { title: "Supervised Machine Learning: Regression and Classification", place: "DeepLearning.AI and Stanford Online (Coursera), Machine Learning Specialization", when: "May 2026",
+      id: "KCVP9JTEGZT1", url: "https://www.coursera.org/account/accomplishments/verify/KCVP9JTEGZT1" },
+    { title: "Introduction to Competitive Programming (workshop)", place: "Notre Dame Information Technology Club", when: "Jan 2023", id: "", url: "" }
+  ],
+
+  // Awards. While this list is empty, the section stays hidden.
+  honors: [
+    { title: "Champion, Intra Math Olympiad (Session 1, 2022)", place: "Notre Dame Math Club, Notre Dame College, Dhaka", when: "Oct 2022" }
+  ],
+
+  skills: {
+    "Machine learning": ["Supervised and unsupervised learning", "NumPy (models written from scratch)", "Clustering and anomaly detection", "Deep reinforcement learning", "Statistical data analysis", "TensorFlow", "PyTorch|learning"],
+    "Software": ["Python", "Pandas and Matplotlib", "React Native and Expo", "PostgreSQL and Supabase", "Cloudflare Workers", "Git and GitHub"],
+    "Engineering": ["Digital logic design", "Control systems", "MATLAB", "Verilog|learning"]
+  },
+
+  contactNote: "I am glad to hear from researchers working on machine learning for chip design or energy-efficient systems."
+};
+/* ===================== END OF THE PART YOU EDIT ===================== */
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]));
+const linkOr = (url, text, reminder) => url ? `<a href="${esc(url)}">${text}</a>` : `<span class="todo">${reminder}</span>`;
+
+function renderProfile(s) {
+  const host = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+  return `
+    <div class="grid" aria-hidden="true"></div>
+    <div class="inner">
+      <img class="photo" src="${esc(s.photo)}" alt="Portrait of ${esc(s.name)}" width="132" height="132">
+      <h1 class="name">${esc(s.name)}</h1>
+      <p class="role">${esc(s.role)}</p>
+      ${s.status ? `<div class="status">${esc(s.status)}</div>` : ""}
+      <ul class="links">
+        <li><span class="k">Email</span><span class="v">${s.email ? `<a href="mailto:${esc(s.email)}">${esc(s.email).replace("@", "@<wbr>")}</a>` : `<span class="todo">add your email</span>`}</span></li>
+        <li><span class="k">GitHub</span><span class="v">${linkOr(s.github, s.github ? esc(host(s.github)) : "", "add GitHub")}</span></li>
+        <li><span class="k">LinkedIn</span><span class="v">${linkOr(s.linkedin, "View profile", "add your LinkedIn link")}</span></li>
+        ${s.scholar ? `<li><span class="k">Scholar</span><span class="v"><a href="${esc(s.scholar)}">Google Scholar</a></span></li>` : ""}
+        <li><span class="k">Based</span><span class="v">${esc(s.location)}</span></li>
+      </ul>
+      ${s.cv ? `<a class="cv" href="${esc(s.cv)}" target="_blank" rel="noopener">Download CV (PDF)</a>` : `<span class="cv" style="opacity:.55">CV coming soon</span>`}
+    </div>`;
+}
+
+function renderMain(s) {
+  const out = [];
+  out.push(`<section id="about" aria-labelledby="about-h"><h2 id="about-h" class="lede">${esc(s.lede)}</h2>${s.about.map(p => `<p>${p}</p>`).join("")}</section>`);
+
+  out.push(`<section id="research"><h2>Research interests</h2><div class="interests">${
+    s.interests.map((x, i) => `<div class="interest"><div class="n">0${i + 1}</div><h3>${esc(x.title)}</h3><p>${esc(x.text)}</p></div>`).join("")
+  }</div></section>`);
+
+  if (s.news.length) out.push(`<section id="news"><h2>News</h2><ul class="news">${
+    s.news.map(n => `<li><span class="d">${esc(n.date)}</span><span>${n.text}</span></li>`).join("")
+  }</ul></section>`);
+
+  if (s.publications.length) out.push(`<section id="publications"><h2>Publications</h2><div class="rows">${
+    s.publications.map(p => `<div class="row"><div class="t">${esc(p.title)}</div><div class="when">${esc(p.venue)}</div><div class="sub">${p.authors}${(p.links || []).map(l => ` · <a href="${esc(l.url)}">${esc(l.label)}</a>`).join("")}</div></div>`).join("")
+  }</div></section>`);
+
+  out.push(`<section id="projects"><h2>Projects</h2>${s.projects.map(p => `
+    <article class="project${p.image ? " has-img" : ""}">
+      <div>
+        <h3>${esc(p.title)}</h3>
+        <div class="meta">${esc(p.meta)}</div>
+        <p>${esc(p.text)}</p>
+        ${p.metrics.length ? `<div class="metrics">${p.metrics.map(m => `<div class="metric"><b>${esc(m.value)}</b><span>${esc(m.label)}</span></div>`).join("")}</div>` : ""}
+        ${p.finding ? `<p>${esc(p.finding)}</p>` : ""}
+        <ul class="tags">${p.tags.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+        <div class="plinks">${p.links.map(l => `<a href="${esc(l.url)}">${esc(l.label)} →</a>`).join("")}</div>
+      </div>
+      ${p.image ? `<figure><img src="${esc(p.image)}" alt="${esc(p.caption)}" loading="lazy"><figcaption>${esc(p.caption)}</figcaption></figure>` : ""}
+    </article>`).join("")}</section>`);
+
+  out.push(`<section id="education"><h2>Education</h2><div class="rows">${
+    s.education.map(e => `<div class="row"><div class="t">${esc(e.title)}</div><div class="when">${esc(e.when)}</div><div class="sub">${esc(e.place)}${e.detail ? `<br>${esc(e.detail)}` : ""}</div></div>`).join("")
+  }</div></section>`);
+
+  if (s.certificates.length) out.push(`<section id="certificates"><h2>Certificates</h2><div class="rows">${
+    s.certificates.map(c => `<div class="row"><div class="t">${c.url ? `<a href="${esc(c.url)}">${esc(c.title)}</a>` : esc(c.title)}</div><div class="when">${esc(c.when)}</div><div class="sub">${esc(c.place)}${c.id ? `<br><span class="cid">Credential ID ${esc(c.id)}</span>` : ""}${c.url ? ` · <a href="${esc(c.url)}">Verify</a>` : ""}</div></div>`).join("")
+  }</div></section>`);
+
+  if ((s.honors || []).length) out.push(`<section id="honors"><h2>Honors</h2><div class="rows">${
+    s.honors.map(h => `<div class="row"><div class="t">${esc(h.title)}</div><div class="when">${esc(h.when)}</div><div class="sub">${esc(h.place)}</div></div>`).join("")
+  }</div></section>`);
+
+  out.push(`<section id="skills"><h2>Skills</h2><div class="skills">${
+    Object.entries(s.skills).map(([g, items]) => `<div><h3>${esc(g)}</h3><ul>${items.map(it => {
+      const [t, flag] = it.split("|");
+      return `<li>${esc(t)}${flag ? `<span class="learning">${esc(flag)}</span>` : ""}</li>`;
+    }).join("")}</ul></div>`).join("")
+  }</div></section>`);
+
+  out.push(`<section id="contact"><h2>Contact</h2><p>${esc(s.contactNote)}</p><p>${s.email ? `Email: <a href="mailto:${esc(s.email)}">${esc(s.email)}</a>` : `<span class="todo">Add your email in the SITE settings.</span>`}${s.cv ? ` · <a href="${esc(s.cv)}" target="_blank" rel="noopener">CV (PDF)</a>` : ""}</p>
+    <footer>© ${new Date().getFullYear()} ${esc(s.name)} · Last updated November 2026</footer></section>`);
+  return out.join("");
+}
+
+document.getElementById("profile").innerHTML = renderProfile(SITE);
+document.getElementById("main").innerHTML = renderMain(SITE);
+</script>
+</body>
+</html>
