@@ -26,8 +26,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: a professor-style homepage. A fixed profile column on the left (photo, name, links),
-   a reading column on the right. A faint routing-grid in the profile panel nods to chip layouts. */
 :root {
   --bg: #F5F6F8;
   --surface: #FFFFFF;
@@ -77,7 +75,6 @@ img { max-width: 100%; display: block; }
 .links li { display: flex; gap: 10px; align-items: baseline; }
 .links .k { font-family: var(--mono); font-size: .72rem; color: var(--muted); width: 58px; flex: none; text-transform: uppercase; letter-spacing: .04em; }
 .links .v { overflow-wrap: anywhere; }
-.todo { color: var(--copper); font-style: italic; }
 .cv { display: block; text-align: center; margin-top: 18px; padding: 10px; border-radius: 8px; background: var(--ink); color: var(--bg); font-weight: 500; font-size: .92rem; }
 .cv:hover { text-decoration: none; opacity: .9; }
 
@@ -149,12 +146,7 @@ footer { color: var(--muted); font-size: .82rem; }
 </div>
 
 <script>
-/* =====================================================================
-   EDIT YOUR PORTFOLIO HERE
-   Everything on the page comes from this one object. To add something,
-   copy an existing entry, paste it below, and change the text.
-   Leave a value as "" to hide it. Save the file and refresh the browser.
-   ===================================================================== */
+/* ---------- content ---------- */
 const SITE = {
   name: "Md. Tanvir Hasan Siyam",
   role: "B.Sc. student, Electronics & Telecommunication Engineering, CUET",
@@ -162,12 +154,11 @@ const SITE = {
   photo: "images/photo.jpg",
   location: "Chattogram, Bangladesh",
 
-  // Fill these in. Anything left as "" shows a reminder until you replace it.
-  email: "tanvirsiyam5088@gmail.com",                         // e.g. "yourname@gmail.com" (use a professional address)
-  linkedin: "https://www.linkedin.com/in/md-tanvir-hasan-siyam-b59a02343",                      // e.g. "https://www.linkedin.com/in/your-handle"
+  email: "tanvirsiyam5088@gmail.com",
+  linkedin: "https://www.linkedin.com/in/md-tanvir-hasan-siyam-b59a02343",
   github: "https://github.com/siyam-05",
-  scholar: "",                       // Google Scholar link, once you have a paper
-  cv: "files/Tanvir_CV.pdf",         // your CV PDF, kept in the "files" folder
+  scholar: "",
+  cv: "files/Tanvir_CV.pdf",
 
   lede: "I build machine-learning systems that have to work in the physical world, and I want to make AI tools for chip design trustworthy.",
   about: [
@@ -219,8 +210,6 @@ const SITE = {
     }
   ],
 
-  // Add papers here when you have them. While this list is empty, the section stays hidden.
-  // Example: { title: "Paper title", authors: "<b>M. T. H. Siyam</b>, A. Author", venue: "MLCAD 2028", links: [{label:"PDF", url:"..."}] }
   publications: [],
 
   education: [
@@ -231,7 +220,6 @@ const SITE = {
     { title: "Secondary School Certificate (SSC)", place: "Jahajmara High School", when: "", detail: "" }
   ],
 
-  // id = credential ID. url = the "Show credential" link from LinkedIn.
   certificates: [
     { title: "Unsupervised Learning, Recommenders, Reinforcement Learning", place: "DeepLearning.AI and Stanford Online (Coursera), Machine Learning Specialization", when: "Nov 2026",
       id: "T8NZUH6LD38E", url: "https://www.coursera.org/account/accomplishments/verify/T8NZUH6LD38E" },
@@ -240,7 +228,6 @@ const SITE = {
     { title: "Introduction to Competitive Programming (workshop)", place: "Notre Dame Information Technology Club", when: "Jan 2023", id: "", url: "" }
   ],
 
-  // Awards. While this list is empty, the section stays hidden.
   honors: [
     { title: "Champion, Intra Math Olympiad (Session 1, 2022)", place: "Notre Dame Math Club, Notre Dame College, Dhaka", when: "Oct 2022" }
   ],
@@ -253,10 +240,10 @@ const SITE = {
 
   contactNote: "I am glad to hear from researchers working on machine learning for chip design or energy-efficient systems."
 };
-/* ===================== END OF THE PART YOU EDIT ===================== */
+/* ---------- render ---------- */
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[c]));
-const linkOr = (url, text, reminder) => url ? `<a href="${esc(url)}">${text}</a>` : `<span class="todo">${reminder}</span>`;
+const linkOr = (url, text) => url ? `<a href="${esc(url)}">${text}</a>` : "";
 
 function renderProfile(s) {
   const host = u => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
@@ -268,9 +255,9 @@ function renderProfile(s) {
       <p class="role">${esc(s.role)}</p>
       ${s.status ? `<div class="status">${esc(s.status)}</div>` : ""}
       <ul class="links">
-        <li><span class="k">Email</span><span class="v">${s.email ? `<a href="mailto:${esc(s.email)}">${esc(s.email).replace("@", "@<wbr>")}</a>` : `<span class="todo">add your email</span>`}</span></li>
-        <li><span class="k">GitHub</span><span class="v">${linkOr(s.github, s.github ? esc(host(s.github)) : "", "add GitHub")}</span></li>
-        <li><span class="k">LinkedIn</span><span class="v">${linkOr(s.linkedin, "View profile", "add your LinkedIn link")}</span></li>
+        <li><span class="k">Email</span><span class="v">${s.email ? `<a href="mailto:${esc(s.email)}">${esc(s.email).replace("@", "@<wbr>")}</a>` : ""}</span></li>
+        <li><span class="k">GitHub</span><span class="v">${linkOr(s.github, s.github ? esc(host(s.github)) : "")}</span></li>
+        <li><span class="k">LinkedIn</span><span class="v">${linkOr(s.linkedin, "View profile")}</span></li>
         ${s.scholar ? `<li><span class="k">Scholar</span><span class="v"><a href="${esc(s.scholar)}">Google Scholar</a></span></li>` : ""}
         <li><span class="k">Based</span><span class="v">${esc(s.location)}</span></li>
       </ul>
@@ -327,7 +314,7 @@ function renderMain(s) {
     }).join("")}</ul></div>`).join("")
   }</div></section>`);
 
-  out.push(`<section id="contact"><h2>Contact</h2><p>${esc(s.contactNote)}</p><p>${s.email ? `Email: <a href="mailto:${esc(s.email)}">${esc(s.email)}</a>` : `<span class="todo">Add your email in the SITE settings.</span>`}${s.cv ? ` · <a href="${esc(s.cv)}" target="_blank" rel="noopener">CV (PDF)</a>` : ""}</p>
+  out.push(`<section id="contact"><h2>Contact</h2><p>${esc(s.contactNote)}</p><p>${s.email ? `Email: <a href="mailto:${esc(s.email)}">${esc(s.email)}</a>` : ""}${s.cv ? ` · <a href="${esc(s.cv)}" target="_blank" rel="noopener">CV (PDF)</a>` : ""}</p>
     <footer>© ${new Date().getFullYear()} ${esc(s.name)} · Last updated November 2026</footer></section>`);
   return out.join("");
 }
